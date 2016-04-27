@@ -13,11 +13,14 @@ def get_anki_bundled_files():
         data_files.append((root, [os.path.join(root, f) for f in files]))
     return data_files
 
+with open('README.rst') as f:
+    LONG_DESCRIPTION = f.read()
+
 setup(
     name="AnkiServer",
     version="2.0.6",
     description="A personal Anki sync server (so you can sync against your own server rather than AnkiWeb)",
-    long_description=open('README.rst').read(),
+    long_description=LONG_DESCRIPTION,
     license='LICENSE.txt',
     author="David Snopek",
     author_email="dsnopek@gmail.com",
@@ -27,6 +30,7 @@ setup(
         "PasteScript>=1.7.3",
         "WebOb>=0.9.7",
         "SQLAlchemy>=0.6.3",
+        "httplib2"
     ],
     tests_require=[
         'nose>=1.3.0',
